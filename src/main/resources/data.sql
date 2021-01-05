@@ -1,3 +1,4 @@
+
 INSERT INTO category(name) VALUES
 ('Mobile Accessories'),
 ('Computer Accessories'),

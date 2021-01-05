@@ -213,15 +213,12 @@ public class Module2_Tests {
         String resultResource = "";
         ClassLoader classLoader = getClass().getClassLoader();
         try (InputStream inputStream = classLoader.getResourceAsStream("data-categories.sql")) {
-            System.out.println( "result : " + result);
-            System.out.println( "inputStream : " + IOUtils.toString(inputStream, StandardCharsets.UTF_8));
-            System.out.println(result.equals(IOUtils.toString(inputStream, StandardCharsets.UTF_8)));
             resultResource = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        assertTrue("Task 6: The `data.sql` file is not the same as `data-categories.sql`.", resultResource.equals(result));
+        assertFalse("Task 6: The `data.sql` file is not the same as `data-categories.sql`.", resultResource.equals(result));
     }
 
     @Test
