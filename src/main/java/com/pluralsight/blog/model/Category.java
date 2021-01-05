@@ -12,6 +12,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @OneToMany
+    private List<Post> posts;
 
     public Category() {
         super();
@@ -30,10 +32,10 @@ public class Category {
     }
 
     public List<Post> getPosts() {
-        return null;
+        return new ArrayList<>();
     }
 
     public void addPost(Post post) {
-        return;
+        posts.add(post);
     }
 }
