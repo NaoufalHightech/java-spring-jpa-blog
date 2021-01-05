@@ -16,6 +16,7 @@ public class Post {
     @Lob
     private String body;
     private String author;
+    @Temporal(TemporalType.DATE)
     private Date date;
 
     public Post() {
