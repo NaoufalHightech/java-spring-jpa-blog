@@ -213,9 +213,12 @@ public class Module2_Tests {
         String resultResource = "";
         ClassLoader classLoader = getClass().getClassLoader();
         try (InputStream inputStream = classLoader.getResourceAsStream("data-categories.sql")) {
+            System.out.println( "result : " + result);
+            System.out.println( "inputStream : " + IOUtils.toString(inputStream, StandardCharsets.UTF_8));
+            System.out.println(result.equals(IOUtils.toString(inputStream, StandardCharsets.UTF_8)));
             resultResource = IOUtils.toString(inputStream, StandardCharsets.UTF_8);
         } catch (IOException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
         }
 
         assertTrue("Task 6: The `data.sql` file is not the same as `data-categories.sql`.", resultResource.equals(result));
@@ -233,8 +236,8 @@ public class Module2_Tests {
 
             doc = Jsoup.parse(content);
         } catch (Exception e) {
-            //errorInfo = e.getLocalizedMessage();
-            //e.printStackTrace();
+            errorInfo = e.getLocalizedMessage();
+            e.printStackTrace();
         }
         String message = "Task 7: The template has errors - " + errorInfo + ".";
         assertNotNull(message, doc);

@@ -1,7 +1,5 @@
 package com.pluralsight.blog.model;
 
-import sun.tools.java.Identifier;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
