@@ -1,12 +1,15 @@
 package com.pluralsight.blog.model;
 
+import sun.tools.java.Identifier;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
+@Entity
 public class Category {
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
 
